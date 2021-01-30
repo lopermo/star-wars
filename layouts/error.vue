@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <div
-      class="container-fluid flex items-center justify-center min-h-screen w-screen"
-      style="background-color: #2d3339"
-    >
-      <div class="relative">
-        <img class="lg:h-80 w-auto" src="/404.gif">
-        <div
-          class="absolute right-0 top-0 bottom-0 my-auto lg:text-8xl text-white leading-none uppercase font-bold flex items-center transform translate-x-24"
-        >
-          It's a<br>
-          trap!
-        </div>
+  <div
+    class="container-fluid flex items-center justify-center min-h-screen lg:py-16 w-screen bg-jedi-dark dark:bg-darth-bg"
+  >
+    <div class="relative flex flex-col items-center text-center">
+      <img class="lg:h-96 w-auto mb-6" src="/admiral-ackbar-404.png" />
+      <div class="lg:text-4xl text-white leading-none font-bold">
+        Well, perhaps not.<br />But something definitely happened.
       </div>
+      <a
+        @click="$router.go(-1)"
+        class="lg:text-2xl mt-4 text-white underline cursor-pointer"
+        >Go back</a
+      >
     </div>
   </div>
 </template>

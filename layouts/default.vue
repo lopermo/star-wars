@@ -21,7 +21,7 @@
               svg-inline
               class="h-10 w-10"
               src="~/assets/admiral-ackbar.svg"
-            >
+            />
           </FAB>
         </nuxt-link>
         <theme-switch />
@@ -36,14 +36,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { darkModeStore } from '~/store/index'
+import Vue from "vue";
+import { darkModeStore } from "~/store/index";
 
 export default Vue.extend({
   computed: {
-    darkMode (): Boolean {
-      return darkModeStore.isDark
-    }
-  }
-})
+    darkMode(): Boolean {
+      return darkModeStore.isDark;
+    },
+  },
+});
 </script>
