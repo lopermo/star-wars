@@ -17,11 +17,11 @@
           src="~/assets/star-wars.svg"
           class="lg:h-16 w-auto fill-current"
           alt="Star Wars' franchise logo"
-        >
+        />
       </nuxt-link>
 
       <nuxt-link
-        to="/list"
+        to="/list/1"
         class="uppercase tracking-widest font-bold transition-all px-5 py-1.5 rounded-md"
         :class="{
           'hover:bg-opacity-20 hover:text-white hover:bg-gray-50': overlay,
@@ -33,25 +33,13 @@
 
       <!-- search box -->
       <div class="flex text-right flex-col items-end w-4/12">
-        <input
-          class="h-9 w-60 bg-white border-2 border-gray-800 rounded-lg text-right px-4 py-2 text-sm"
-          type="text"
-          placeholder="Search a character..."
-        >
+        <Search class="text-dark" />
         <div class="flex mt-3 text-sm">
-          <div class="font-medium mr-4">
-            Last visited:
-          </div>
+          <div class="font-medium mr-4">Last visited:</div>
           <div class="flex space-x-4">
-            <div class="underline">
-              Luke Skywalker
-            </div>
-            <div class="underline">
-              R2-D2
-            </div>
-            <div class="underline">
-              C3P0
-            </div>
+            <div class="underline">Luke Skywalker</div>
+            <div class="underline">R2-D2</div>
+            <div class="underline">C3P0</div>
           </div>
         </div>
       </div>
@@ -60,15 +48,15 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from 'vue'
+import Vue, { PropOptions } from "vue";
 
 export default Vue.extend({
   props: {
     overlay: {
       type: Boolean,
       required: false,
-      default: false
-    } as PropOptions<Boolean>
-  }
-})
+      default: false,
+    } as PropOptions<Boolean>,
+  },
+});
 </script>
