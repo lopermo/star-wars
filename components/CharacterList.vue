@@ -41,7 +41,7 @@
 import Vue from 'vue'
 export default Vue.extend({
   methods: {
-    navigate: () => {
+    navigate (): void {
       console.log('working')
     }
   }

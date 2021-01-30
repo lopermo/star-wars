@@ -1,29 +1,55 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        starwarsfandom
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div>
+    <client-only placeholder="Cargando...">
+      <swiper
+        ref="carousel"
+        :options="swiperOptions"
+        class="h-screen max-h-screen w-full relative"
+      >
+        <div slot="pagination" class="swiper-pagination" />
+        <!-- slide 1 -->
+        <swiper-slide class="overflow-hidden">
+          <div class="h-screen max-h-screen w-full relative">
+            <div
+              class="absolute h-full w-full bg-gray-900 opacity-60 top-0 left-0 z-0"
+            />
+            <img
+              src="/slider3.jpg"
+              class="h-full w-full object-center object-cover z-10"
+              alt="C3-P0 and R2-D2 contemplating the sunset"
+            >
+          </div>
+        </swiper-slide>
+
+        <!-- slide 2 -->
+        <swiper-slide class="overflow-hidden">
+          <div class="h-screen max-h-screen w-full relative">
+            <div
+              class="absolute h-full w-full bg-gray-900 opacity-60 top-0 left-0 z-0"
+            />
+            <img
+              src="/slider2.jpg"
+              class="h-full w-full object-center object-cover z-10"
+              alt="A robot is walking on a deserted planet"
+            >
+          </div>
+        </swiper-slide>
+
+        <!-- slide 3 -->
+        <swiper-slide class="overflow-hidden">
+          <div class="h-screen max-h-screen w-full relative">
+            <div
+              class="absolute h-full w-full bg-gray-900 opacity-60 top-0 left-0 z-0"
+            />
+            <img
+              src="/slider1.png"
+              class="h-full w-full object-center object-cover z-10"
+              alt="Darth Vader and Storm troopers in a digital background"
+            >
+          </div>
+        </swiper-slide>
+      </swiper>
+    </client-only>
   </div>
 </template>
 
@@ -31,44 +57,21 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  layout: 'overlay'
+  layout: 'overlay',
+  data () {
+    return {
+      swiperOptions: {
+        speed: 1000,
+        loop: true,
+        effect: 'fade',
+        centeredSlides: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: true
+        }
+      },
+      swiper: undefined
+    }
+  }
 })
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

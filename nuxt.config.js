@@ -32,12 +32,14 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     "@assets/global.scss",
+    'swiper/swiper.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/vuex-persist', ssr: false },
     { src: '~/plugins/pagination', ssr: false },
+    { src: '~/plugins/swiper', mode: 'client' },
     { src: '~/plugins/filters', ssr: false }
   ],
 
