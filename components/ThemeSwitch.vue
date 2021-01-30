@@ -3,7 +3,10 @@
     <FAB
       :class="[
         'text-white',
-        { 'bg-jedi-blue': darkMode, 'bg-darth-red': !darkMode },
+        {
+          'bg-jedi-blue': darkMode,
+          'bg-darth-red': !darkMode,
+        },
       ]"
     >
       <img

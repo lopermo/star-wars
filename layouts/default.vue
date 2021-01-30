@@ -14,7 +14,7 @@
       <!-- ./ content -->
 
       <!-- theme switcher -->
-      <div class="fixed bottom-10 right-10 flex space-x-3">
+      <div class="fixed bottom-10 lg:pb-5 right-10 flex space-x-3">
         <nuxt-link to="/error-page">
           <FAB>
             <img

@@ -10,7 +10,7 @@
       },
     ]"
   >
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between text-white">
       <nuxt-link to="/">
         <img
           svg-inline
@@ -22,7 +22,7 @@
 
       <div class="text-xs font-medium lg:text-right">
         This website is in no way affiliated with or endorsed by
-        <span class="font-bold underline"> Lucasfilm Limited </span>
+        <span class="font-bold underline">Lucasfilm Limited</span>
         or any of its subsidiaries, employees, or associates.
       </div>
     </div>
