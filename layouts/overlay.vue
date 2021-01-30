@@ -9,7 +9,7 @@
     <!-- ./ content -->
 
     <!-- footer -->
-
+    <Footer :overlay="true" />
     <!-- ./ footer -->
   </div>
 </template>

@@ -1,5 +1,12 @@
 <template>
-  <div>
+  <div class="relative">
+    <div
+      class="absolute lg:left-10 z-30 flex top-1/2 transform -translate-y-1/2 items-center lg:w-1/2"
+    >
+      <div class="lg:text-7xl lg:font-black text-white">
+        A long time ago in a galaxy far, far away....
+      </div>
+    </div>
     <client-only placeholder="Cargando...">
       <swiper
         ref="carousel"

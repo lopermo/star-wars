@@ -29,7 +29,7 @@
       <!-- ./ theme switcher -->
 
       <!-- footer -->
-
+      <Footer />
       <!-- ./ footer -->
     </div>
   </div>
