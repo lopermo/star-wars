@@ -17,14 +17,15 @@ export default {
         name: "viewport",
         content: "width=device-width, initial-scale=1, maximum-scale=1",
       },
-      { hid: "description", name: "description", content: "Karpify solves today's marketing by using state of the art technologies." },
+      { hid: "description", name: "description", content: "Not so long ago in a galaxy rather nearby... Guillermo López designed this website." },
       {
         property: 'og:description',
         content:
-          'Karpify solves today\'s marketing by using state of the art technologies.'
+          'Not so long ago in a galaxy rather nearby... Guillermo López designed this website.'
       },
       { property: 'og:title', content: 'Star Wars - Guillermo López' },
-      // { property: 'og:url', content: 'https://karpify.com/' }
+      { property: 'og:image', content: 'https://star-wars-lopermo.netlify.app/og_image.jpeg' },
+      // { property: 'og:url', content: 'https://star-wars.lopermo.com' }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
@@ -61,7 +62,9 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    https: true
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
