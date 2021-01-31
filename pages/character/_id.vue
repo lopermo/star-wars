@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-6 md:px-16 lg:px-40 xl:px-0 xl:container py-16 lg:py-20 mx-auto"
+    class="px-6 md:px-16 lg:px-40 xl:px-16 xl:container py-16 lg:py-20 mx-auto"
   >
     <a
       @click="returnToList()"
@@ -240,9 +240,10 @@ export default Vue.extend({
       // Fetch the character's info
       try {
         this.character = await this.$axios.$get(
-          `https://swapi.dev/api/people/${this.id}`
+          `http://swapi.dev/api/people/${this.id}`
         );
       } catch (error) {
+        console.log(error);
         this.$router.push({ name: "notfound" });
       }
       // Parse the title of the movies
@@ -253,7 +254,7 @@ export default Vue.extend({
         this.nextId = this.id + 1 !== 17 ? this.id + 1 : this.id + 2;
         if (this.nextId <= 83 && this.nextId !== 0) {
           this.next = await this.$axios.$get(
-            `https://swapi.dev/api/people/${this.nextId}`
+            `//swapi.dev/api/people/${this.nextId}`
           );
         } else {
           this.next = null;
@@ -262,13 +263,14 @@ export default Vue.extend({
         this.prevId = this.id - 1 !== 17 ? this.id - 1 : this.id - 2;
         if (this.prevId >= 1 && this.prevId !== 0) {
           this.prev = await this.$axios.$get(
-            `https://swapi.dev/api/people/${this.prevId}`
+            `//swapi.dev/api/people/${this.prevId}`
           );
         } else {
           this.prev = null;
         }
       } catch (error) {}
     } catch (error) {
+      console.log(error);
       this.$router.push({ name: "notfound" });
     } finally {
       this.loaded = true;

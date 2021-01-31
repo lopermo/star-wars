@@ -4,7 +4,7 @@
       class="absolute left-5 lg:left-10 z-30 flex bottom-1/3 md:bottom-2/4 lg:bottom-1/4 xl:bottom-1/2 transform translate-y-full md:translate-y-1/2 lg:translate-y-0 xl:translate-y-1/2 items-center w-10/12 md:w-3/4 xl:w-1/2"
     >
       <div
-        class="text-lg sm:text-4xl md:text-6xl lg:text-7xl font-black text-white"
+        class="text-lg sm:text-4xl md:text-6xl lg:text-7xl font-black text-white pb-14 sm:mb-0"
       >
         A long time ago in a galaxy far, far away....
       </div>

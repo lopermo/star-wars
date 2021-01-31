@@ -44,7 +44,6 @@ export default Vue.extend({
   },
   methods: {
     searchName() {
-      console.log("Searching...");
       this.$axios
         .$get("https://swapi.dev/api/people/", {
           params: { search: this.name },

@@ -2,6 +2,15 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
+  server: {
+    host: '0.0.0.0',
+    port: '3000'
+  },
+
+  generate: {
+    fallback: true
+  },
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -24,7 +33,9 @@ export default {
           'Not so long ago in a galaxy rather nearby... Guillermo López designed this website.'
       },
       { property: 'og:title', content: 'Star Wars - Guillermo López' },
-      { property: 'og:image', content: 'https://star-wars-lopermo.netlify.app/og_image.jpeg' },
+      { property: 'og:image', content: 'https://star-wars.lopermo.com/og_image.jpeg' },
+      { property: 'og:locale', content: 'en_US' },
+      { "http-equiv": "Content-Security-Policy", content: "upgrade-insecure-requests" },
       // { property: 'og:url', content: 'https://star-wars.lopermo.com' }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
@@ -63,6 +74,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
+    baseURL: 'https://swapi.dev/api/',
     https: true
   },
 
