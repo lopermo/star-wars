@@ -23,5 +23,6 @@ declare module "vue/types/options" {
     fetch?(ctx: Context): Promise<void> | void;
     layout?: string | ((ctx: Context) => string);
     middleware?: Middleware | Middleware[];
+    debounceName?: any;
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="grid lg:grid-cols-5 lg:gap-8 mt-6">
     <div
-      class="text-bold tracking-widest dark:text-white font-bold"
+      class="text-bold tracking-widest font-bold"
       v-if="characters.length === 0"
     >
       Searching...
@@ -47,7 +47,7 @@ import Vue, { PropOptions } from "vue";
 export default Vue.extend({
   props: {
     characters: {
-      type: Object,
+      type: Array,
       required: true,
     } as PropOptions<Object>,
   },

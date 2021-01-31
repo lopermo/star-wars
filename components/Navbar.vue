@@ -40,7 +40,8 @@
             <nuxt-link
               :to="`/character/${character.id}`"
               class="underline"
-              v-for="character in listVisited"
+              v-for="(character, id) in listVisited"
+              :key="id"
             >
               {{ character.name }}
             </nuxt-link>

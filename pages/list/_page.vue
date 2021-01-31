@@ -27,6 +27,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import Character from "~/types/character";
 import CharacterList from "../../types/characterList";
 
 export default Vue.extend({
@@ -50,10 +51,14 @@ export default Vue.extend({
     } catch (error) {
       this.$router.push({ name: "notfound" });
     }
-    this.characters.results = this.characters.results.map((data) => {
+    this.characters.results = this.characters.results.map((data: any) => {
       return {
         ...data,
-        id: data.url.split("http://swapi.dev/api/people/").pop().slice(0, -1),
+        id: data?.url
+          ?.toString()
+          ?.split("http://swapi.dev/api/people/")
+          ?.pop()
+          ?.slice(0, -1),
       };
     });
     this.count = Math.ceil(this.characters.count / 10); // 10 characters per page

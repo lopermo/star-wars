@@ -20,17 +20,16 @@ export default class HistoryClass extends VuexModule {
   @Mutation
   pushVisited(character: Character) {
     let alreadyExists = false;
-    this.lastCharacterVisited.forEach(data => {
+    this.lastCharacterVisited.forEach((data, key) => {
       if (data.id === character.id) {
         alreadyExists = true;
+        this.lastCharacterVisited.splice(key, 1);
       }
     });
-    if (!alreadyExists) {
-      if (this.lastCharacterVisited.length === 3) {
-        this.lastCharacterVisited.pop();
-      }
-      this.lastCharacterVisited.unshift(character);
+    if (this.lastCharacterVisited.length === 3) {
+      this.lastCharacterVisited.pop();
     }
+    this.lastCharacterVisited.unshift(character);
   }
 
   /**

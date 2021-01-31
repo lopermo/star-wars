@@ -8,4 +8,5 @@ export default interface Character {
   mass: string;
   skin_color: string;
   films: Array<string>;
+  url: string;
 }

@@ -32,12 +32,13 @@
 <script lang="ts">
 import Vue from "vue";
 import { debounce } from "lodash";
+import Character from "../types/character";
 
 export default Vue.extend({
   data() {
     return {
       name: "",
-      characters: [],
+      characters: [] as Character[],
       debounced: false,
     };
   },
@@ -52,10 +53,12 @@ export default Vue.extend({
           this.characters = this.characters.map((data) => {
             return {
               ...data,
-              id: data.url
-                .split("http://swapi.dev/api/people/")
-                .pop()
-                .slice(0, -1),
+              id:
+                data?.url
+                  .toString()
+                  ?.split("http://swapi.dev/api/people/")
+                  ?.pop()
+                  ?.slice(0, -1) ?? undefined,
             };
           });
           this.debounced = true;
@@ -64,9 +67,9 @@ export default Vue.extend({
           console.log(error);
         });
     },
-  },
-  created() {
-    this.debounceName = debounce(this.searchName, 1000);
+    debounceName() {
+      debounce(this.searchName, 1000);
+    },
   },
   watch: {
     name() {

@@ -2,7 +2,7 @@
   <div class="container py-16 lg:py-20 mx-auto">
     <a
       @click="returnToList()"
-      class="cursor-pointer text/sm uppercase tracking-widest font-bold mb-5 block"
+      class="cursor-pointer text/sm uppercase tracking-widest font-bold mb-5 block max-w-max"
     >
       ← Go back to the list
     </a>
@@ -194,15 +194,15 @@ export default Vue.extend({
       loaded: false,
       character: {} as Character,
       nextId: 0,
-      next: {} as Character | null,
+      next: null as Character | null,
       prevId: 0,
-      prev: {} as Character | null,
+      prev: null as Character | null,
     };
   },
   async fetch(): Promise<void> {
     try {
+      // Fetch the character's info
       try {
-        // Fetch the character's info
         this.character = await this.$axios.$get(
           `https://swapi.dev/api/people/${this.id}`
         );
@@ -212,10 +212,10 @@ export default Vue.extend({
       // Parse the title of the movies
       this.character.films = this.parseFilms(this.character.films);
 
+      // Fetch the next character
       try {
-        // Fetch the next character
         this.nextId = this.id + 1 !== 17 ? this.id + 1 : this.id + 2;
-        if (this.nextId <= 83) {
+        if (this.nextId <= 83 && this.nextId !== 0) {
           this.next = await this.$axios.$get(
             `https://swapi.dev/api/people/${this.nextId}`
           );
@@ -224,7 +224,7 @@ export default Vue.extend({
         }
         // Fetch the previous character
         this.prevId = this.id - 1 !== 17 ? this.id - 1 : this.id - 2;
-        if (this.prevId >= 1) {
+        if (this.prevId >= 1 && this.prevId !== 0) {
           this.prev = await this.$axios.$get(
             `https://swapi.dev/api/people/${this.prevId}`
           );
