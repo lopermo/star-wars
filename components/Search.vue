@@ -1,14 +1,14 @@
 <template>
-  <div class="relative text-dark">
+  <div class="relative text-black">
     <input
-      class="h-9 w-60 px-4 py-2 bg-white border-2 border-gray-800 rounded-lg text-right text-dark text-sm"
+      class="h-9 w-60 px-4 py-2 bg-white border-2 border-gray-800 rounded-lg text-right text-sm"
       type="text"
       placeholder="Search a character..."
       v-model="name"
     />
     <div
       v-if="name !== '' && debounced === true"
-      class="absolute transform translate-y-full right-0 bg-white shadow-2xl rounded-md border-2 border-gray-900 bottom-0.5 overflow-hidden"
+      class="absolute transform translate-y-full right-0 bg-white shadow-2xl rounded-md border-2 border-gray-900 bottom-0.5 overflow-hidden z-20"
     >
       <div class="px-4 py-3" v-if="characters.length == 0">
         We're sorry, but we don't know any
@@ -17,12 +17,12 @@
       </div>
       <ul v-if="characters.length > 0">
         <li v-for="character in characters">
-          <nuxt-link
-            class="block py-2 px-6 transform hover:bg-gray-100 transition-all duration-200"
-            :to="`/character/${character.id}`"
+          <a
+            @click="navigate(character.id)"
+            class="block py-2 px-6 transform hover:bg-gray-100 transition-all duration-200 cursor-pointer"
           >
             {{ character.name }}
-          </nuxt-link>
+          </a>
         </li>
       </ul>
     </div>
@@ -44,6 +44,7 @@ export default Vue.extend({
   },
   methods: {
     searchName() {
+      console.log("Searching...");
       this.$axios
         .$get("https://swapi.dev/api/people/", {
           params: { search: this.name },
@@ -67,12 +68,18 @@ export default Vue.extend({
           console.log(error);
         });
     },
-    debounceName() {
-      debounce(this.searchName, 1000);
+    navigate(id: string) {
+      this.debounced = false;
+      this.name = "";
+      this.$router.push({ name: "character-id", params: { id: id } });
     },
+  },
+  created() {
+    this.debounceName = debounce(this.searchName, 1000);
   },
   watch: {
     name() {
+      console.log("Changed");
       if (!this.name) return;
       this.debounceName();
     },

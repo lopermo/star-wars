@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white p-3 rounded-full border border-gray-900 shadow cursor-pointer transform translate-y-0 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
+    class="bg-white p-3 rounded-full border border-gray-900 shadow cursor-pointer transform translate-y-0 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 z-50"
   >
     <slot />
   </div>

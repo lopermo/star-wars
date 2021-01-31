@@ -33,7 +33,7 @@
 
       <!-- search box -->
       <div class="flex text-right flex-col items-end w-4/12">
-        <Search class="text-dark" />
+        <Search />
         <div class="flex mt-3 text-sm">
           <div class="font-medium mr-4">Last visited:</div>
           <div class="flex space-x-4">
