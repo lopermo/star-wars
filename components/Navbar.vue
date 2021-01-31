@@ -36,7 +36,7 @@
 
       <!-- search box -->
       <div
-        class="flex md:text-right flex-col items-end ml-auto xl:ml-0 xl:w-4/12"
+        class="flex md:text-right flex-col md:items-end md:ml-auto xl:ml-0 xl:w-4/12"
       >
         <Search class="mx-auto md:mx-0 mb-4 md:mb-0" />
         <div

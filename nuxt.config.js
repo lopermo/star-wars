@@ -22,10 +22,7 @@ export default {
     },
     meta: [
       { charset: "utf-8" },
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1, maximum-scale=1",
-      },
+      { name: 'viewport', content: 'initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' },
       { hid: "description", name: "description", content: "Not so long ago in a galaxy rather nearby... Guillermo López designed this website." },
       {
         property: 'og:description',
@@ -36,7 +33,7 @@ export default {
       { property: 'og:image', content: 'https://star-wars.lopermo.com/og_image.jpeg' },
       { property: 'og:locale', content: 'en_US' },
       { "http-equiv": "Content-Security-Policy", content: "upgrade-insecure-requests" },
-      // { property: 'og:url', content: 'https://star-wars.lopermo.com' }
+      { property: 'og:url', content: 'https://star-wars.lopermo.com' }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },

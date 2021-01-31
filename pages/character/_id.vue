@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-6 md:px-16 lg:px-40 xl:px-16 xl:container py-16 lg:py-20 mx-auto"
+    class="px-6 md:px-16 lg:px-40 xl:px-6 xl:container py-16 lg:py-20 mx-auto"
   >
     <a
       @click="returnToList()"

@@ -8,7 +8,7 @@
     />
     <div
       v-if="name !== '' && debounced === true"
-      class="absolute transform translate-y-full right-0 bg-white shadow-2xl rounded-md border border-gray-700 bottom-0.5 overflow-hidden z-20"
+      class="absolute transform translate-y-full left-0 md:right-0 bg-white shadow-2xl rounded-md border border-gray-700 bottom-0.5 overflow-hidden z-40"
     >
       <div class="px-4 py-3" v-if="characters.length == 0">
         We're sorry, but we don't know any
