@@ -6,18 +6,18 @@
         'absolute bottom-0 left-0 text-white z-20': overlay,
       },
       {
-        'dark:text-white': !overlay,
+        'bg-bg text-black': !overlay,
       },
     ]"
   >
-    <div class="flex items-center justify-between text-white">
+    <div class="flex items-center justify-between">
       <nuxt-link to="/">
         <img
           svg-inline
           src="~/assets/star-wars.svg"
           class="lg:h-7 w-auto fill-current"
           alt="Star Wars' franchise logo"
-        >
+        />
       </nuxt-link>
 
       <div class="text-xs font-medium lg:text-right">
@@ -30,15 +30,15 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from 'vue'
+import Vue, { PropOptions } from "vue";
 
 export default Vue.extend({
   props: {
     overlay: {
       type: Boolean,
       required: false,
-      default: false
-    } as PropOptions<Boolean>
-  }
-})
+      default: false,
+    } as PropOptions<Boolean>,
+  },
+});
 </script>

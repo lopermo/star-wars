@@ -17,7 +17,7 @@ export default class ThemeClass extends VuexModule {
     this.darkMode = !this.darkMode;
   }
 
-  get isDark() {
+  get isDark(): Boolean {
     return this.darkMode;
   }
 }

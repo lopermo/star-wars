@@ -1,10 +1,9 @@
 import Vue from "vue";
 
-// TODO: Parse gender values to friendly values
+// Gender parser to friendly
 Vue.filter("genderParser", function(value: string): string {
   if (value === "male") return "Male";
   if (value === "female") return "Female";
-  if (value === "n/a") return "Unknown";
   return "Unknown";
 });
 
@@ -13,20 +12,26 @@ Vue.filter("pluralize", function(word: string, amount: number): string {
   return amount > 1 || amount === 0 ? `${word}s` : word;
 });
 
-// TODO: Parse eye color values to friendly values
-Vue.filter("eyeParser", function(value: string): string {
-  if (!value) return "Unknown";
-  return "";
+// Hair and eye color to friendly
+Vue.filter("naParser", function(value: string): string {
+  return value === "n/a" ? "Doesn't have" : value;
 });
 
-// TODO: Parse skin color values to friendly values
-Vue.filter("skinParser", function(value: string): string {
-  if (!value) return "Unknown";
-  return "";
+// Mass parser to friendly
+Vue.filter("massParser", function(value: string): string {
+  if (value !== "unknown" && value !== "n/a") return `${value} kg`;
+  return "Unknown";
 });
 
-// TODO: Parse film id to episode number
-Vue.filter("filmParser", function(value: string): string {
-  if (!value) return "Unknown";
-  return "";
+// Height parser to friendly
+Vue.filter("heightParser", function(value: string): string {
+  if (value !== "unknown" && value !== "n/a") return `${value} cm`;
+  return "Unknown";
+});
+
+// Capitalize filter
+Vue.filter("capitalize", function(value: string): string {
+  if (!value) return "";
+  value = value.toString();
+  return value.charAt(0).toUpperCase() + value.slice(1);
 });

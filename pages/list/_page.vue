@@ -1,7 +1,7 @@
 <template>
   <div class="container py-16 lg:py-20 mx-auto">
     <div
-      class="flex justify-between space-x-8 flex-auto items-center bg-white rounded-md px-8 py-3 transform shadow-lg"
+      class="flex justify-between space-x-8 flex-auto items-center bg-white border-gray-400 rounded-md px-8 py-3 transform shadow"
     >
       <div class="font-extrabold uppercase tracking-widest">
         List of characters
@@ -9,7 +9,7 @@
       <paginate
         v-model="page"
         :page-count="count"
-        :page-range="4"
+        :page-range="5"
         :margin-pages="0"
         :hide-prev-next="true"
         :prev-text="'Prev'"
@@ -43,9 +43,13 @@ export default Vue.extend({
     };
   },
   async fetch(): Promise<void> {
-    this.characters = await this.$axios.$get(
-      `https://swapi.dev/api/people/?page=${this.page}`
-    );
+    try {
+      this.characters = await this.$axios.$get(
+        `https://swapi.dev/api/people/?page=${this.page}`
+      );
+    } catch (error) {
+      this.$router.push({ name: "notfound" });
+    }
     this.characters.results = this.characters.results.map((data) => {
       return {
         ...data,

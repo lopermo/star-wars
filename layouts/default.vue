@@ -1,14 +1,12 @@
 <template>
   <div :class="{ dark: darkMode }">
-    <div
-      class="container-fluid bg-jedi-dark dark:bg-darth-bg min-h-screen h-full"
-    >
+    <div class="container-fluid min-h-screen h-full">
       <!-- navbar -->
       <Navbar />
       <!-- ./ navbar -->
 
       <!-- content -->
-      <div class="min-h-screen h-full w-full">
+      <div class="min-h-screen h-full w-full bg-bg text-black">
         <Nuxt />
       </div>
       <!-- ./ content -->

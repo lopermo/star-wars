@@ -18,6 +18,7 @@ module.exports = {
         3: '3px'
       },
       colors: {
+        bg: "#f2f3f7",
         darth: {
           DEFAULT: '#a6242c',
           red: '#a6242c',
