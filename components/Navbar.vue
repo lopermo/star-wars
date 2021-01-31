@@ -25,10 +25,10 @@
         />
       </nuxt-link>
 
-      <div class="my-6 md:my-0 px-5 md:px-3 lg:px-5 py-1.5">
+      <div class="my-6 md:my-0">
         <nuxt-link
           to="/list/1"
-          class="uppercase tracking-widest font-bold transition-all rounded-md hover:bg-opacity-20 hover:text-white hover:bg-white"
+          class="uppercase tracking-widest font-bold transition-all rounded-md hover:bg-opacity-20 hover:text-white hover:bg-white px-5 md:px-3 lg:px-5 py-1.5"
         >
           Characters
         </nuxt-link>

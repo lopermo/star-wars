@@ -1,5 +1,7 @@
 <template>
-  <div class="">
+  <div
+    class="px-6 md:px-16 lg:px-40 xl:px-0 xl:container py-16 lg:py-20 mx-auto"
+  >
     <a
       @click="returnToList()"
       class="cursor-pointer text/sm uppercase tracking-widest font-bold mb-5 block max-w-max text-gray-700"

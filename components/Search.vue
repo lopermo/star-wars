@@ -74,12 +74,11 @@ export default Vue.extend({
       this.$router.push({ name: "character-id", params: { id: id } });
     },
   },
-  created() {
+  created(this: any) {
     this.debounceName = debounce(this.searchName, 1000);
   },
   watch: {
-    name() {
-      console.log("Changed");
+    name(this: any) {
       if (!this.name) return;
       this.debounceName();
     },

@@ -65,20 +65,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push(
-          {
-            test: /\.vue$/,
-            loader: 'vue-svg-inline-loader',
-            options: {
-              /* ... */
-            }
-          }
-        )
-      }
-      config.resolve.alias.vue = 'vue/dist/vue.common'
+    // use extend() method for nuxt
+    extend(config, { isServer, isClient }) {
+      config.module.rules.push({
+        test: /\.vue$/,
+        loader: "vue-svg-inline-loader",
+        options: { /* ... */ }
+      })
     }
   }
 }
