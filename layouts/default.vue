@@ -7,7 +7,11 @@
 
       <!-- content -->
       <div class="min-h-screen h-full w-full bg-bg text-black">
-        <Nuxt />
+        <div
+          class="px-6 md:px-16 lg:px-40 xl:px-0 xl:container py-16 lg:py-20 mx-auto"
+        >
+          <Nuxt />
+        </div>
       </div>
       <!-- ./ content -->
 

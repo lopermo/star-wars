@@ -1,20 +1,22 @@
 <template>
-  <div class="container py-16 lg:py-20 mx-auto">
+  <div>
     <div
-      class="flex justify-between space-x-8 flex-auto items-center bg-white border-gray-400 rounded-md px-8 py-3 transform shadow"
+      class="flex xl:justify-between flex-wrap xl:flex-nowrap xl:space-x-8 flex-auto items-center bg-white border-gray-400 rounded-md px-4 lg:px-8 py-3 transform shadow"
     >
-      <div class="font-extrabold uppercase tracking-widest">
+      <div
+        class="font-bold uppercase tracking-widest text-gray-700 mb-4 xl:mb-0 w-full xl:w-auto text-center xl:text-left"
+      >
         List of characters
       </div>
       <paginate
         v-model="page"
         :page-count="count"
-        :page-range="5"
+        :page-range="3"
         :margin-pages="0"
         :hide-prev-next="true"
         :prev-text="'Prev'"
         :next-text="'Next'"
-        :container-class="'flex items-center space-x-3 justify-center py-2'"
+        :container-class="'flex items-center space-x-3 justify-center py-2 w-full xl:w-auto'"
         :page-class="'pagination-link'"
         :prev-class="'pagination-link next_prev'"
         :next-class="'pagination-link next_prev'"
@@ -87,7 +89,7 @@ export default Vue.extend({
     }
   }
   &.disabled {
-    @apply bg-gray-50 cursor-not-allowed;
+    @apply bg-gray-50 cursor-not-allowed hidden md:block;
     a {
       @apply cursor-not-allowed;
     }

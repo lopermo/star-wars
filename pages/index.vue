@@ -1,9 +1,11 @@
 <template>
   <div class="relative">
     <div
-      class="absolute lg:left-10 z-30 flex top-1/2 transform -translate-y-1/2 items-center lg:w-1/2"
+      class="absolute left-5 lg:left-10 z-30 flex bottom-1/3 md:bottom-2/4 lg:bottom-1/4 xl:bottom-1/2 transform translate-y-full md:translate-y-1/2 lg:translate-y-0 xl:translate-y-1/2 items-center w-10/12 md:w-3/4 xl:w-1/2"
     >
-      <div class="lg:text-7xl lg:font-black text-white">
+      <div
+        class="text-lg sm:text-4xl md:text-6xl lg:text-7xl font-black text-white"
+      >
         A long time ago in a galaxy far, far away....
       </div>
     </div>
@@ -24,7 +26,7 @@
               src="/slider3.jpg"
               class="h-full w-full object-center object-cover z-10"
               alt="C3-P0 and R2-D2 contemplating the sunset"
-            >
+            />
           </div>
         </swiper-slide>
 
@@ -38,7 +40,7 @@
               src="/slider2.jpg"
               class="h-full w-full object-center object-cover z-10"
               alt="A robot is walking on a deserted planet"
-            >
+            />
           </div>
         </swiper-slide>
 
@@ -52,7 +54,7 @@
               src="/slider1.png"
               class="h-full w-full object-center object-cover z-10"
               alt="Darth Vader and Storm troopers in a digital background"
-            >
+            />
           </div>
         </swiper-slide>
       </swiper>
@@ -61,24 +63,24 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 
 export default Vue.extend({
-  layout: 'overlay',
-  data () {
+  layout: "overlay",
+  data() {
     return {
       swiperOptions: {
         speed: 1000,
         loop: true,
-        effect: 'fade',
+        effect: "fade",
         centeredSlides: true,
         autoplay: {
           delay: 4000,
-          disableOnInteraction: true
-        }
+          disableOnInteraction: true,
+        },
       },
-      swiper: undefined
-    }
-  }
-})
+      swiper: undefined,
+    };
+  },
+});
 </script>

@@ -1,21 +1,21 @@
 <template>
   <div
     :class="[
-      'w-screen h-auto lg:py-8 lg:px-12',
+      'w-screen h-auto py-6 lg:py-8 px-6 lg:px-12',
       {
         'absolute bottom-0 left-0 text-white z-20': overlay,
       },
       {
-        'bg-bg text-black': !overlay,
+        'bg-bg text-gray-600': !overlay,
       },
     ]"
   >
-    <div class="flex items-center justify-between">
-      <nuxt-link to="/">
+    <div class="flex flex-wrap lg:flex-nowrap items-center justify-between">
+      <nuxt-link to="/" class="mb-1.5 md:md-0">
         <img
           svg-inline
           src="~/assets/star-wars.svg"
-          class="lg:h-7 w-auto fill-current"
+          class="h-4 lg:h-7 w-auto fill-current mx-auto md:mx-0"
           alt="Star Wars' franchise logo"
         />
       </nuxt-link>

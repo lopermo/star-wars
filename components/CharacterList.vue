@@ -1,7 +1,7 @@
 <template>
-  <div class="grid lg:grid-cols-5 lg:gap-8 mt-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8 mt-6">
     <div
-      class="text-bold tracking-widest font-bold"
+      class="text-gray-600 tracking-widest font-bold"
       v-if="characters.length === 0"
     >
       Searching...
@@ -14,7 +14,7 @@
       <nuxt-link :to="`/character/${character.id}`">
         <div class="relative">
           <img
-            class="w-full h-80 object-cover object-top border-b border-gray-900"
+            class="w-full h-full xl:h-96 object-cover object-top border-b border-gray-900"
             :src="`/characters/${character.id}.jpg`"
             alt="Character from Star Wars franchise"
           />
@@ -26,7 +26,9 @@
           <div class="font-medium text-xl mb-0.5">
             {{ character.name }}
           </div>
-          <div class="flex justify-between items-center space-x-8">
+          <div
+            class="flex justify-between items-center space-x-8 text-gray-600"
+          >
             <div>{{ character.gender | genderParser }}</div>
             <div
               class="bg-jedi-blue text-white dark:bg-darth-red dark:text-white px-2 py-0.5 rounded-md text-xs font-bold"

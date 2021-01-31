@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'w-screen h-auto min-h-full lg:py-8 lg:px-12',
+      'w-screen h-auto min-h-full py-6 lg:py-8 px-6 lg:px-12',
       {
         'absolute top-0 left-0 text-white z-20 bg-gradient-to-b from-gray-800': overlay,
       },
@@ -10,31 +10,38 @@
       },
     ]"
   >
-    <div class="flex items-center justify-between">
-      <nuxt-link to="/" class="w-4/12">
+    <div
+      class="flex flex-wrap lg:flex-nowrap items-center justify-center xl:justify-between"
+    >
+      <nuxt-link
+        to="/"
+        class="w-full md:w-auto xl:w-4/12 md:mr-6 xl:mr-0 nuxt-link-active"
+      >
         <img
           svg-inline
           src="~/assets/star-wars.svg"
-          class="lg:h-16 w-auto fill-current"
+          class="h-12 lg:h-16 w-auto fill-current mx-auto md:mx-0"
           alt="Star Wars' franchise logo"
         />
       </nuxt-link>
 
-      <nuxt-link
-        to="/list/1"
-        class="uppercase tracking-widest font-bold transition-all px-5 py-1.5 rounded-md"
-        :class="{
-          'hover:bg-opacity-20 hover:text-white hover:bg-gray-50': overlay,
-          'hover:bg-opacity-70 dark:hover-bg-opacity-30 hover:text-white hover:bg-jedi-blue dark:hover:bg-white dark:hover:text-black': !overlay,
-        }"
-      >
-        Characters
-      </nuxt-link>
+      <div class="my-6 md:my-0 px-5 md:px-3 lg:px-5 py-1.5">
+        <nuxt-link
+          to="/list/1"
+          class="uppercase tracking-widest font-bold transition-all rounded-md hover:bg-opacity-20 hover:text-white hover:bg-white"
+        >
+          Characters
+        </nuxt-link>
+      </div>
 
       <!-- search box -->
-      <div class="flex text-right flex-col items-end w-4/12">
-        <Search />
-        <div class="flex mt-3 text-sm">
+      <div
+        class="flex md:text-right flex-col items-end ml-auto xl:ml-0 xl:w-4/12"
+      >
+        <Search class="mx-auto md:mx-0 mb-4 md:mb-0" />
+        <div
+          class="flex flex-wrap md:flex-nowrap justify-center md:justify-start mt-3 text-sm"
+        >
           <div class="font-medium mr-4">Last visited:</div>
           <div class="flex space-x-4">
             <nuxt-link

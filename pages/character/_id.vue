@@ -1,62 +1,78 @@
 <template>
-  <div class="container py-16 lg:py-20 mx-auto">
+  <div class="">
     <a
       @click="returnToList()"
-      class="cursor-pointer text/sm uppercase tracking-widest font-bold mb-5 block max-w-max"
+      class="cursor-pointer text/sm uppercase tracking-widest font-bold mb-5 block max-w-max text-gray-700"
     >
       ← Go back to the list
     </a>
     <div
-      class="bg-white rounded-md overflow-hidden transform shadow flex mb-16"
+      class="bg-white rounded-md overflow-hidden transform shadow flex flex-col lg:flex-row mb-16"
     >
       <div
-        class="flex-initial border-r border-gray-900 md:w-4/12 lg:w-3/12 relative"
+        class="flex-initial border-r border-gray-900 w-full h-auto lg:w-5/12 xl:w-3/12 relative"
       >
         <img
-          class="object-cover object-top absolute left-0 top-0 w-full h-full"
+          class="object-cover object-top absolute left-0 top-0 w-full h-full hidden md:block"
+          :src="`/characters/${id}.jpg`"
+          alt="Character from Star Wars franchise"
+        />
+        <img
+          class="object-cover object-top w-full h-full lg:hidden"
           :src="`/characters/${id}.jpg`"
           alt="Character from Star Wars franchise"
         />
       </div>
-      <div class="flex-grow py-14 px-16">
-        <div class="lg:text-2xl font-medium" v-if="!loaded">
+      <div class="w-full lg:flex-grow p-8 lg:py-14 lg:px-16">
+        <div
+          class="lg:text-xl xl:text-2xl font-medium text-gray-500"
+          v-if="!loaded"
+        >
           Loading information about the character...
         </div>
         <div v-if="loaded">
           <!-- name -->
-          <div>
-            <div class="text-sm font-medium mb-1.5 uppercase tracking-widest">
-              Name
-            </div>
-            <div class="font-bold lg:text-4xl">{{ character.name }}</div>
+          <div
+            class="text-xs xl:text-sm font-medium lg:mb-1.5 uppercase tracking-widest text-gray-500"
+          >
+            Name
           </div>
+          <div class="font-bold text-xl lg:text-4xl">{{ character.name }}</div>
           <!-- ./ name -->
 
           <!-- eye, skin, hair and height -->
-          <div class="grid grid-cols-5 gap-x-16 mt-10">
-            <div>
-              <div class="text-sm font-medium mb-1.5 uppercase tracking-widest">
+          <div
+            class="grid md:grid-cols-3 xl:grid-cols-5 gap-x-4 xl:gap-x-16 mt-6 lg:mt-10"
+          >
+            <div class="mb-4 lg:mb-0">
+              <div
+                class="text-xs xl:text-sm font-medium lg:mb-1.5 uppercase tracking-widest text-gray-500"
+              >
                 Eye color
               </div>
-              <div class="font-bold lg:text-2xl">
+              <div class="font-bold lg:text-xl xl:text-2xl">
                 {{ character.eye_color | naParser | capitalize }}
               </div>
             </div>
 
-            <div>
-              <div class="text-sm font-medium mb-1.5 uppercase tracking-widest">
+            <div class="mb-4 lg:mb-0">
+              <div
+                class="text-xs xl:text-sm font-medium lg:mb-1.5 uppercase tracking-widest text-gray-500"
+              >
                 Hair color
               </div>
-              <div class="font-bold lg:text-2xl">
+              <div class="font-bold lg:text-xl xl:text-2xl">
                 {{ character.hair_color | naParser | capitalize }}
               </div>
             </div>
 
             <div>
-              <div class="text-sm font-medium mb-1.5 uppercase tracking-widest">
+              <div
+                class="text-xs xl:text-sm font-medium lg:mb-1.5 uppercase tracking-widest text-gray-500"
+              >
                 Skin color
               </div>
-              <div class="font-bold lg:text-2xl">
+              <div class="font-bold lg:text-xl xl:text-2xl">
                 {{ character.skin_color | capitalize }}
               </div>
             </div>
@@ -64,28 +80,38 @@
           <!-- ./ eye, skin, hair and height -->
 
           <!-- mass, height, birthdate -->
-          <div class="grid grid-cols-5 gap-x-16 mt-10">
-            <div>
-              <div class="text-sm font-medium mb-1.5 uppercase tracking-widest">
+          <div
+            class="grid md:grid-cols-3 xl:grid-cols-5 gap-x-4 xl:gap-x-16 mt-6 lg:mt-10"
+          >
+            <div class="mb-4 lg:mb-0">
+              <div
+                class="text-xs xl:text-sm font-medium lg:mb-1.5 uppercase tracking-widest text-gray-500"
+              >
                 Height
               </div>
-              <div class="font-bold lg:text-2xl">
+              <div class="font-bold lg:text-xl xl:text-2xl">
                 {{ character.height | heightParser | capitalize }}
               </div>
             </div>
-            <div>
-              <div class="text-sm font-medium mb-1.5 uppercase tracking-widest">
+
+            <div class="mb-4 lg:mb-0">
+              <div
+                class="text-xs xl:text-sm font-medium lg:mb-1.5 uppercase tracking-widest text-gray-500"
+              >
                 Mass
               </div>
-              <div class="font-bold lg:text-2xl">
+              <div class="font-bold lg:text-xl xl:text-2xl">
                 {{ character.mass | massParser | capitalize }}
               </div>
             </div>
+
             <div>
-              <div class="text-sm font-medium mb-1.5 uppercase tracking-widest">
+              <div
+                class="text-xs xl:text-sm font-medium lg:mb-1.5 uppercase tracking-widest text-gray-500"
+              >
                 Birth date
               </div>
-              <div class="font-bold lg:text-2xl">
+              <div class="font-bold lg:text-xl xl:text-2xl">
                 {{ character.birth_year | capitalize }}
               </div>
             </div>
@@ -94,13 +120,13 @@
 
           <!-- Films starred -->
           <div
-            class="text-sm font-medium mb-1.5 mt-10 uppercase tracking-widest"
+            class="text-xs xl:text-sm font-medium mb-1.5 mt-6 lg:mt-10 uppercase tracking-widest text-gray-500"
           >
             Appears in
           </div>
-          <div class="flex space-x-4">
+          <div id="films_starred" class="flex flex-wrap xl:flex-nowrap">
             <div
-              class="bg-jedi-blue text-white dark:bg-darth-red dark:text-white px-4 py-0.5 rounded-md text-md font-bold"
+              class="bg-jedi-blue text-white dark:bg-darth-red dark:text-white px-4 py-0.5 rounded-md text-md font-bold min-w-max max-w-max"
               v-for="film in character.films"
             >
               {{ film }}
@@ -112,13 +138,17 @@
     </div>
 
     <!-- navigation -->
-    <div class="w-full flex justify-between">
-      <nuxt-link class="lg:w-3/12" v-if="prev" :to="`/character/${prevId}`">
+    <div class="w-full flex flex-wrap md:flex-nowrap justify-between">
+      <nuxt-link
+        class="w-full md:w-5/12 xl:w-3/12 mb-4 md:mb-0"
+        v-if="prev"
+        :to="`/character/${prevId}`"
+      >
         <div
           class="h-full bg-white hover:shadow-lg rounded border-b-4 border-jedi-blue dark:border-darth-red shadow-md transition-all duration-200 flex items-center overflow-hidden"
         >
           <img
-            class="w-auto h-36 object-cover object-top border-r border-gray-900"
+            class="w-auto h-36 object-cover object-top"
             :src="`/characters/${prevId}.jpg`"
             alt="Character from Star Wars franchise"
           />
@@ -144,7 +174,11 @@
         </div>
       </nuxt-link>
       <div class="w-px h-px" v-else></div>
-      <nuxt-link class="lg:w-3/12" v-if="next" :to="`/character/${nextId}`">
+      <nuxt-link
+        class="w-full md:w-5/12 xl:w-3/12"
+        v-if="next"
+        :to="`/character/${nextId}`"
+      >
         <div
           class="h-full bg-white shadow hover:shadow-lg rounded border-b-4 border-jedi-blue dark:border-darth-red justify-end text-right transition-all duration-200 flex items-center overflow-hidden"
         >
@@ -172,7 +206,7 @@
             </div>
           </div>
           <img
-            class="w-auto h-36 object-cover object-top border-r border-gray-900"
+            class="w-auto h-36 object-cover object-top"
             :src="`/characters/${nextId}.jpg`"
             alt="Character from Star Wars franchise"
           />
@@ -288,3 +322,13 @@ export default Vue.extend({
   },
 });
 </script>
+
+
+<style lang="scss" scoped>
+#films_starred div {
+  @apply mb-2;
+  &:not(:last-child) {
+    @apply mr-2;
+  }
+}
+</style>
