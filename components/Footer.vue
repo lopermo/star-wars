@@ -3,7 +3,7 @@
     :class="[
       'w-screen h-auto py-6 lg:py-8 px-6 lg:px-12',
       {
-        'absolute bottom-0 left-0 text-white z-20': overlay,
+        'absolute bottom-0 left-0 text-white z-50': overlay,
       },
       {
         'bg-bg text-gray-600': !overlay,

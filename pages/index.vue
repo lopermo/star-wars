@@ -1,6 +1,9 @@
 <template>
   <div class="relative overflow-hidden">
     <div
+      class="absolute top-0 left-0 w-full h-full z-20 bg-gradient-to-b from-gray-800"
+    ></div>
+    <div
       class="absolute left-5 lg:left-10 z-30 flex bottom-1/3 md:bottom-2/4 lg:bottom-1/4 xl:bottom-1/2 transform -translate-y-full md:translate-y-1/2 lg:translate-y-0 xl:translate-y-1/2 items-center w-10/12 md:w-3/4 xl:w-1/2"
     >
       <div

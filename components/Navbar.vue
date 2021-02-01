@@ -3,7 +3,7 @@
     :class="[
       'w-screen h-auto min-h-full py-6 lg:py-8 px-6 lg:px-12',
       {
-        'absolute top-0 left-0 text-white z-20 bg-gradient-to-b from-gray-800': overlay,
+        'absolute top-0 left-0 text-white z-40': overlay,
       },
       {
         'bg-jedi-blue text-white dark:bg-darth-dark text-inherit dark:text-white border-b border-gray-900': !overlay,
